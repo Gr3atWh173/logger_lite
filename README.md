@@ -16,6 +16,37 @@ Or install it yourself as:
 
     $ gem install logger_lite
 
+## Usage
+
+```ruby
+require 'logger_lite'
+
+# Specify the filename
+filename = "log.txt"
+
+# Specify a mode
+mode = "write" # or "append"
+
+# This is optional
+startmsg = "Start of logging"
+ 
+# Create a new logger object
+logger = LoggerLite::Logger.new(filename, mode, startmsg)
+
+# Log a normal thing
+logger.log("Normal thing happened")
+
+# Log a warning
+logger.log("Feels like something bad is about to happen")
+
+# Log an error
+logger.log("Something bad happened")
+
+# Close the logging session
+logger.end_session("End of an era")
+
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
