@@ -29,7 +29,7 @@ module LoggerLite
     end
     
     def warning(w)
-      data = "[#{Time.now}] - ERROR - #{e}\n"
+      data = "[#{Time.now}] - ERROR - #{w}\n"
       self.handle.write(data)
     end
 
