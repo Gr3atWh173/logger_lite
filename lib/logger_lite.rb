@@ -7,10 +7,7 @@ module LoggerLite
 
     def initialize(log_location=$stdout, mode="append", startmsg=nil)
       self.log_location = log_location
-      if mode != "appen" || mode != "write"
-        raise ArgumentError, "Mode not supported."
-      end
-
+      if ! ["write", "append"].include? mode then raise ArgumentError, "#{mode} not supported." end
       mode = mode == "write" ? "w" : "a"
 
       self.handle = File.open(self.log_location, mode)
@@ -37,7 +34,7 @@ module LoggerLite
     end
 
     def end_session(data)
-      if data = nil
+      if data == nil
         self.handle.close
       else
         data = "[#{Time.now}] - END - #{data}"
