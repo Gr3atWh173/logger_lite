@@ -37,7 +37,7 @@ module LoggerLite
       if data == nil
         self.handle.close
       else
-        data = "[#{Time.now}] - END - #{data}"
+        data = "[#{Time.now}] - END - #{data}\n"
         self.handle.write(data)
         self.handle.close
       end
